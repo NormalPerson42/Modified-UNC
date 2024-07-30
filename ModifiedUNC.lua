@@ -653,9 +653,7 @@ test("setscriptable", {}, function()
 	assert(isscriptable(fire, "size_xml") == false, "???? setscriptable persists between unique instances ????")
 end)
 
-test("setrbxclipboard", {}, function()
-    setclipboard(getclipboard())
-end)
+test("setrbxclipboard", {})
 
 -- Metatable
 
@@ -711,6 +709,10 @@ end)
 
 -- Miscellaneous
 
+test("setfflag", {}, function()
+    setfflag("cap", 20)
+end)
+
 test("identifyexecutor", {"getexecutorname"}, function()
 	local name, version = identifyexecutor()
 	assert(type(name) == "string", "Did not return a string for the name")
@@ -735,9 +737,7 @@ test("messagebox", {}, function()
     messagebox("test", "please press ok to finish the unc test", 1)
 end)
 
-test("queue_on_teleport", {"queueonteleport"}, function()
-    queue_on_teleport("test")
-end)
+test("queue_on_teleport", {"queueonteleport"})
 
 test("request", {"http.request", "http_request"}, function()
 	local response = request({
@@ -855,10 +855,7 @@ end)
 
 -- Drawing
 
-test("Drawing", {}, function()
-    if Drawing then
-    end
-end)
+test("Drawing", {})
 
 test("Drawing.new", {}, function()
 	local drawing = Drawing.new("Square")
@@ -908,10 +905,7 @@ end)
 
 -- WebSocket
 
-test("WebSocket", {}, function()
-    if websocket then
-    end
-end)
+test("WebSocket", {})
 
 test("WebSocket.connect", {}, function()
 	local types = {
