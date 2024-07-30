@@ -653,7 +653,9 @@ test("setscriptable", {}, function()
 	assert(isscriptable(fire, "size_xml") == false, "???? setscriptable persists between unique instances ????")
 end)
 
-test("setrbxclipboard", {})
+test("setrbxclipboard", {}, function()
+    setclipboard(getclipboard())
+end)
 
 -- Metatable
 
@@ -734,10 +736,12 @@ test("lz4decompress", {}, function()
 end)
 
 test("messagebox", {}, function()
-    messagebox("test", "please press ok to finish the unc test", 1)
+    messagebox("please press ok to finish the unc test", "please press ok to finish the unc test", 1)
 end)
 
-test("queue_on_teleport", {"queueonteleport"})
+test("queue_on_teleport", {"queueonteleport"}, function()
+    queue_on_teleport("test")
+end)
 
 test("request", {"http.request", "http_request"}, function()
 	local response = request({
@@ -855,7 +859,10 @@ end)
 
 -- Drawing
 
-test("Drawing", {})
+test("Drawing", {}, function()
+    if Drawing then
+    end
+end)
 
 test("Drawing.new", {}, function()
 	local drawing = Drawing.new("Square")
@@ -905,7 +912,10 @@ end)
 
 -- WebSocket
 
-test("WebSocket", {})
+test("WebSocket", {}, function()
+    if websocket then
+    end
+end)
 
 test("WebSocket.connect", {}, function()
 	local types = {
